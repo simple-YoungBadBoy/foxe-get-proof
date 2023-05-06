@@ -3,6 +3,7 @@
 
 ## 以下代码，直接复制到浏览器控制台中，修改你的钱包地址，然后运行即可
 
+```js
 let success = false;
 let yourAddress = ""//请复制你的地址在这里
 while (!success) {
@@ -28,3 +29,4 @@ while (!success) {
   }
   await new Promise(resolve => setTimeout(resolve, 15000));
 }
+```
