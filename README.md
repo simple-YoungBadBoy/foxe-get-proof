@@ -26,9 +26,17 @@ while (!success) {
   "mode": "cors",
   "credentials": "omit"
     });
-    const data = await response.json();
-    console.log(data);
-    success = true;
+    if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        break;
+      } else if (response.status === 404) {
+        const data = await response.text();
+        console.log(`Received 404 response: ${data}`);
+        break;
+      } else {
+        throw new Error(`Received unexpected response: ${response.status}`);
+      }
   } catch (error) {
     console.error(error);
   }
